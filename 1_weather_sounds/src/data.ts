@@ -1,4 +1,13 @@
-export const data = [
+export interface IWeatherElement {
+    sound: string,
+    back: string,
+    icon: string,
+    audio?: HTMLAudioElement,
+    button?: HTMLButtonElement,
+    butImage?: HTMLImageElement
+}
+
+export const data: IWeatherElement[] = [
     {
         sound: 'summer.mp3',
         back: 'summer-bg.jpg',
