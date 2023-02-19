@@ -3,7 +3,7 @@ import { data, IWeatherElement } from './data';
 
 const pauseIcon = 'pause.svg';
 
-let curAudio: HTMLAudioElement = null;
+let curAudio: HTMLAudioElement | null = null;
 let isPaused = false;
 let volume = 0.5;
 
