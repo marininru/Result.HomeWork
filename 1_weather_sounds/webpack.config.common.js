@@ -59,7 +59,12 @@ module.exports = {
                         options: {
                             postcssOptions: {
                                 plugins: [[require('postcss-preset-env')]]
-                            }
+                            },
+                            plugins: [
+                                autoprefixer({
+                                    browsers: ['ie >= 8', 'last 4 version']
+                                })
+                            ]
                         }
                     },
                     // Compiles Sass to CSS
