@@ -1,0 +1,22 @@
+{
+  "root": true,
+  "env": {
+    "browser": true,
+    "es2021": true,
+    "jest": true
+  },
+  "parser": "@typescript-eslint/parser",
+  "parserOptions": {
+    "project": "./tsconfig.json"
+  },
+  "extends": [
+    "airbnb-base",
+    "airbnb-typescript"
+  ],
+  "overrides": [
+  ],
+  "rules": {
+    "react/jsx-filename-extension": "off",
+    "import/prefer-default-export": "off"
+  }
+}
