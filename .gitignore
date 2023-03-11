@@ -4,3 +4,4 @@ dist
 .npmrc
 .DS_Store
 build
+.eslint-cache
