@@ -9,13 +9,10 @@ export function useFetch(url) {
         async ({ params }) => {
             setIsLoading(true);
             try {
-                const response = await fetch(url);
+                const response = await fetch(`${url}?_limit=${params._limit}`);
 
                 if (response.ok) {
                     let json = await response.json();
-                    if (params?._limit) {
-                        json.length = params._limit;
-                    }
                     setData(json);
                 } else {
                     setError(`Error: ${response.status}`);
