@@ -1,13 +1,13 @@
 import './index.css';
-import { data } from './data.js';
+import { data, IWeatherElement } from './data';
 
 const pauseIcon = 'pause.svg';
 
-let curAudio;
+let curAudio: HTMLAudioElement | null = null;
 let isPaused = false;
 let volume = 0.5;
 
-function playSound(newAudio) {
+function playSound(newAudio: HTMLAudioElement) {
     if (curAudio !== newAudio) {
         curAudio?.pause();
         newAudio.volume = volume;
@@ -20,22 +20,22 @@ function playSound(newAudio) {
     }
 }
 
-function changeBackground(backImage) {
-    const back = document.querySelector('#back');
+function changeBackground(backImage: string) {
+    const back: HTMLElement = document.querySelector('#back');
     back.style.background = `url('./assets/${backImage}')`;
 }
 
-function changeIcons(selectedEl) {
+function changeIcons(selectedEl: IWeatherElement) {
     data.forEach(
         el =>
-            (el.butImage.src =
-                el === selectedEl && isPaused
-                    ? `assets/icons/${pauseIcon}`
-                    : `assets/icons/${el.icon}`)
+        (el.butImage.src =
+            el === selectedEl && isPaused
+                ? `assets/icons/${pauseIcon}`
+                : `assets/icons/${el.icon}`)
     );
 }
 
-function changeVolume(newVolume) {
+function changeVolume(newVolume: number) {
     volume = newVolume;
     if (curAudio) {
         curAudio.pause();
@@ -48,7 +48,7 @@ function init() {
     const buttons = document.querySelectorAll('#weather-buttons button');
     data.forEach((el, i) => {
         el.audio = new Audio(`assets/sounds/${el.sound}`);
-        el.button = buttons[i];
+        el.button = buttons[i] as HTMLButtonElement;
         el.button.style.backgroundImage = `url('assets/${el.back}')`;
         el.butImage = el.button.querySelector('img');
         el.button.addEventListener('click', () => {
@@ -58,9 +58,9 @@ function init() {
         });
     });
 
-    const ctrlVolume = document.getElementById('volume');
-    ctrlVolume.value = volume * 100;
-    ctrlVolume.addEventListener('change', event => changeVolume(event.target.value / 100));
+    const ctrlVolume = document.getElementById('volume') as HTMLInputElement;
+    ctrlVolume.value = (volume * 100).toString();
+    ctrlVolume.addEventListener('change', (event: Event) => changeVolume(+(event.target as HTMLInputElement).value / 100));
 }
 
 init();

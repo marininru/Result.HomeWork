@@ -4,9 +4,9 @@ module.exports = {
         es2021: true
     },
     extends: 'eslint:recommended',
+    parser: '@typescript-eslint/parser',
     parserOptions: {
-        ecmaVersion: 'latest',
-        sourceType: 'module'
+        project: './tsconfig.json'
     },
     rules: {
         'no-useless-return': 'off',
