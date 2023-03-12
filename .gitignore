@@ -5,3 +5,5 @@ dist
 .eslint-cache
 .DS_Store
 build
+.eslint-cache
+.idea
