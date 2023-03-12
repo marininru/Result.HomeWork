@@ -9,7 +9,14 @@ export function useFetch(url) {
         async ({ params }) => {
             setIsLoading(true);
             try {
-                const response = await fetch(`${url}?_limit=${params._limit}`);
+                let paramString = '';
+                if (typeof params === 'object') {
+                    const keys = Object.keys(params);
+                    paramString = keys.map(key => `${key}=${params[key]}`).join('&');
+                    if (paramString) paramString = '?' + paramString;
+                }
+
+                const response = await fetch(`${url}${paramString}`);
 
                 if (response.ok) {
                     let json = await response.json();
