@@ -1,4 +1,4 @@
-import { useWindowScroll } from './hooks/useWindowScroll';
+import { useWindowScroll } from '../../hooks/useWindowScroll';
 
 export function Task5() {
     const [scroll, scrollTo] = useWindowScroll();

@@ -1,4 +1,4 @@
-import { useLocalStorage } from './hooks/useLocalStorage';
+import { useLocalStorage } from '../../hooks/useLocalStorage';
 
 export function Task2() {
     const [token, { setItem, removeItem }] = useLocalStorage('token');

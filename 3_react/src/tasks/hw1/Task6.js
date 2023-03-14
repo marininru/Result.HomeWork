@@ -1,4 +1,4 @@
-import { useToggle } from './hooks/useToggle';
+import { useToggle } from '../../hooks/useToggle';
 
 export function Task6() {
     const [value, toggle] = useToggle(['blue', 'orange', 'cyan', 'teal']);

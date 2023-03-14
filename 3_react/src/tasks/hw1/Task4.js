@@ -1,4 +1,4 @@
-import { useViewportSize } from './hooks/useViewportSize';
+import { useViewportSize } from '../../hooks/useViewportSize';
 
 export function Task4() {
     const { height, width } = useViewportSize();

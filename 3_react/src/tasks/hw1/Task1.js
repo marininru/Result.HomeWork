@@ -1,4 +1,4 @@
-import { useFetch } from './hooks/useFetch';
+import { useFetch } from '../../hooks/useFetch';
 
 export function Task1() {
     const { data, isLoading, error, refetch } = useFetch(
